@@ -1,0 +1,35 @@
+{
+  "name": "cnab",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "start": "tsc && node dist/main.js",
+    "exec": "ts-node -r tsconfig-paths/register src/main.ts",
+    "lint": "eslint . --ext .ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "class-transformer": "0.5.1",
+    "class-validator": "0.14.0",
+    "reflect-metadata": "0.1.13",
+    "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "8.1.0",
+    "@types/node": "20.7.1",
+    "@typescript-eslint/eslint-plugin": "6.7.3",
+    "@typescript-eslint/parser": "6.7.3",
+    "eslint": "8.50.0",
+    "husky": "8.0.3",
+    "install": "0.13.0",
+    "lint-staged": "14.0.1",
+    "prettier": "3.0.3",
+    "ts-node": "10.9.1",
+    "tsconfig-paths": "4.2.0"
+  }
+
+}
