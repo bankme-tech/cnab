@@ -1,5 +1,3 @@
-import { writeFileSync } from 'fs';
-
 export class Metadata {
   public static get<T, K = Record<string, unknown>>(this: T): string {
     const data: K = {} as K;
@@ -35,11 +33,5 @@ export class Metadata {
 export class Crlf {
   public static parse(string: string): string {
     return string.replace(/\n/g, '\r\n');
-  }
-}
-
-export class File {
-  public static save(string: string, filename: string): void {
-    writeFileSync(filename, string);
   }
 }
