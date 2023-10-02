@@ -1,15 +1,18 @@
 {
-  "name": "cnab",
+  "name": "@bankme-tech/cnab",
   "version": "1.0.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/bankme-tech/cnab.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bankme-tech/cnab.git"
+  },
   "license": "MIT",
   "private": false,
   "type": "commonjs",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "lint": "eslint . --ext .ts",
