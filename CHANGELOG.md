@@ -1,5 +1,11 @@
 # cnab
 
+## 1.0.3
+
+### Patch Changes
+
+- 93d31b3: validation cnab on instance, fix property key on metadata
+
 ## 1.0.2
 
 ### Patch Changes
