@@ -1,5 +1,5 @@
 import { BaseRegistroTransacao } from '@/cnab/444/interfaces/base-registro-transacao.interface';
-import { Decorators } from '@/decorators';
+import { PropertyPosition } from '@/decorators';
 import { plainToClass } from 'class-transformer';
 import {
   IsNotEmpty,
@@ -18,7 +18,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Identificação do registro. Valor padrão é '0'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(1, 1, true)
+  @PropertyPosition(1, 1, true)
   @MaxLength(1)
   @IsNotEmpty()
   IdentificacaoRegistro: string = '0';
@@ -27,7 +27,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Indica se é débito automático. Valor padrão é ' ' (espaço).
    * @type {string}
    */
-  @Decorators.PropertyPosition(2, 20, false)
+  @PropertyPosition(2, 20, false)
   @MaxLength(19)
   DebitoAutomatico: string = ' ';
 
@@ -35,7 +35,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Coobrigação. Valor padrão é '02'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(21, 22, true)
+  @PropertyPosition(21, 22, true)
   @MaxLength(2)
   @IsNotEmpty()
   Coobrigacao: string = '02';
@@ -44,7 +44,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Característica especial. Valor padrão é '00'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(23, 24, false)
+  @PropertyPosition(23, 24, false)
   @MaxLength(2)
   @IsNotEmpty()
   CaracteristicaEspecial: string = '00';
@@ -53,7 +53,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Modalidade de operação. Valor padrão é '0000'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(25, 28, false)
+  @PropertyPosition(25, 28, false)
   @MaxLength(4)
   @IsNotEmpty()
   ModalidadeOperacao: string = '0000';
@@ -62,7 +62,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Natureza da operação. Valor padrão é '00'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(29, 30, false)
+  @PropertyPosition(29, 30, false)
   @MaxLength(2)
   @IsNotEmpty()
   NaturezaOperacao: string = '00';
@@ -71,7 +71,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Origem dos recursos. Valor padrão é '0000'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(31, 34, false)
+  @PropertyPosition(31, 34, false)
   @MaxLength(4)
   @IsNotEmpty()
   OrigemRecurso: string = '0000';
@@ -80,7 +80,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Classe de risco da operação. Valor padrão é 'A'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(35, 36, false)
+  @PropertyPosition(35, 36, false)
   @MaxLength(2)
   @IsNotEmpty()
   ClasseRiscoOperacao: string = 'A';
@@ -89,14 +89,14 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Zeros (preenchimento). Valor padrão é '0'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(37, 37, false)
+  @PropertyPosition(37, 37, false)
   Zeros37: string = '0';
 
   /**
    * Número de controle do participante. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(38, 62, true)
+  @PropertyPosition(38, 62, true)
   @MaxLength(25)
   @IsNotEmpty()
   NumeroControleParticipante: string = '';
@@ -105,7 +105,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Número do banco. Valor padrão é '000'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(63, 65, false)
+  @PropertyPosition(63, 65, false)
   @MaxLength(3)
   @IsNotEmpty()
   NumeroBanco: string = '000';
@@ -114,7 +114,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Zeros (preenchimento). Valor padrão é '00000'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(66, 70, true)
+  @PropertyPosition(66, 70, true)
   @MaxLength(5)
   @IsNotEmpty()
   Zeros66: string = '00000';
@@ -123,7 +123,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Identificação do título no banco. Valor padrão é '00000000000'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(71, 81, false)
+  @PropertyPosition(71, 81, false)
   @MaxLength(11)
   @IsNotEmpty()
   IdentificacaoTituloBanco: string = '00000000000';
@@ -132,14 +132,14 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Dígito do nosso número. Valor padrão é ' ' (espaço).
    * @type {string}
    */
-  @Decorators.PropertyPosition(82, 82, false)
+  @PropertyPosition(82, 82, false)
   DigitoNossoNumero: string = ' ';
 
   /**
    * Valor pago. Valor padrão é '0000000000'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(83, 92, false)
+  @PropertyPosition(83, 92, false)
   @MaxLength(10)
   @IsNotEmpty()
   ValorPago: string = '0000000000';
@@ -148,7 +148,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Condição de emissão de papeleta de cobrança. Valor padrão é '0'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(93, 93, false)
+  @PropertyPosition(93, 93, false)
   @MaxLength(1)
   @IsNotEmpty()
   CondicaoEmissaoPapeletaCobranca: string = '0';
@@ -157,28 +157,28 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Identificação se emite papeleta para débito automático. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(94, 94, false)
+  @PropertyPosition(94, 94, false)
   IdentificacaoSeEmitePapeletaParaDebitoAutomatico: string = '';
 
   /**
    * Data de liquidação. Deve ser preenchida.
    * @type {string}
    */
-  @Decorators.PropertyPosition(95, 100, true)
+  @PropertyPosition(95, 100, true)
   DataLiquidacao: string = '';
 
   /**
    * Identificação da operação no banco. Valor padrão é ' ' (espaço).
    * @type {string}
    */
-  @Decorators.PropertyPosition(101, 104, false)
+  @PropertyPosition(101, 104, false)
   IdentificacaoOperacaoBanco: string = ' ';
 
   /**
    * Indicação de rateio de crédito. Valor padrão é ' ' (espaço).
    * @type {string}
    */
-  @Decorators.PropertyPosition(105, 105, false)
+  @PropertyPosition(105, 105, false)
   @IsOptional()
   @MaxLength(1)
   IndicaRateioCredito: string = ' ';
@@ -187,28 +187,28 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Endereçamento para aviso de débito automático em conta corrente. Valor padrão é '0'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(106, 106, false)
+  @PropertyPosition(106, 106, false)
   EnderecamentoAvisoDebitoAutomaticoContaCorrente: string = '0';
 
   /**
    * Espaço em branco. Valor padrão é ' ' (espaço).
    * @type {string}
    */
-  @Decorators.PropertyPosition(107, 108, false)
+  @PropertyPosition(107, 108, false)
   Branco107: string = ' ';
 
   /**
    * Identificação de ocorrência. Deve ser preenchida.
    * @type {string}
    */
-  @Decorators.PropertyPosition(109, 110, true)
+  @PropertyPosition(109, 110, true)
   IdentificacaoOcorrencia: string = '01';
 
   /**
    * Número do documento. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(111, 120, true)
+  @PropertyPosition(111, 120, true)
   @MaxLength(10)
   @IsNotEmpty()
   NumeroDocumento: string = '';
@@ -217,7 +217,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Data de vencimento do título. Deve ser preenchida.
    * @type {string}
    */
-  @Decorators.PropertyPosition(121, 126, true, { alphanumerics: true })
+  @PropertyPosition(121, 126, true, { alphanumerics: true })
   @MaxLength(6)
   @Matches(/^([0-9]{6})$/)
   @IsNotEmpty()
@@ -227,7 +227,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Valor do título. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(127, 139, true, {
+  @PropertyPosition(127, 139, true, {
     allowLeadingZeros: true,
     alphanumerics: true,
   })
@@ -239,7 +239,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Banco encarregado da cobrança. Valor padrão é '000'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(140, 142, false)
+  @PropertyPosition(140, 142, false)
   @MaxLength(3)
   @IsNotEmpty()
   BancoEncarregadoCobranca: string = '000';
@@ -248,7 +248,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Agência depositária. Valor padrão é '00000'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(143, 147, false)
+  @PropertyPosition(143, 147, false)
   @MaxLength(5)
   @IsNotEmpty()
   AgenciaDepositaria: string = '00000';
@@ -257,7 +257,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Espécie do título. Deve ser preenchida.
    * @type {string}
    */
-  @Decorators.PropertyPosition(148, 149, true)
+  @PropertyPosition(148, 149, true)
   @MaxLength(2)
   @IsNotEmpty()
   EspecieTitulo: string = '06';
@@ -266,7 +266,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Identificação. Valor padrão é '1'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(150, 150, false)
+  @PropertyPosition(150, 150, false)
   @MaxLength(1)
   @IsNotEmpty()
   Identificacao: string = '1';
@@ -275,7 +275,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Data de emissão do título. Deve ser preenchida.
    * @type {string}
    */
-  @Decorators.PropertyPosition(151, 156, true, { alphanumerics: true })
+  @PropertyPosition(151, 156, true, { alphanumerics: true })
   @MaxLength(6)
   @IsNotEmpty()
   @Matches(/^([0-9]{6})$/)
@@ -287,7 +287,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Primeira instrução. Valor padrão é '00'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(157, 158, false)
+  @PropertyPosition(157, 158, false)
   @MaxLength(2)
   @IsNotEmpty()
   _1aInstrucao: string = '00';
@@ -296,7 +296,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Segunda instrução. Valor padrão é '0'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(159, 159, false)
+  @PropertyPosition(159, 159, false)
   @MaxLength(1)
   @IsNotEmpty()
   _2aInstrucao: string = '0';
@@ -305,7 +305,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Tipo de pessoa do cedente. Valor padrão é '02'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(160, 161, true, {
+  @PropertyPosition(160, 161, true, {
     allowLeadingZeros: true,
     alphanumerics: true,
   })
@@ -317,7 +317,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Zeros (preenchimento). Valor padrão é '000000000000'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(162, 173, false)
+  @PropertyPosition(162, 173, false)
   @MaxLength(12)
   @IsNotEmpty()
   Zeros162: string = '000000000000';
@@ -326,7 +326,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Número do termo de cessão. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(174, 192, true, {
+  @PropertyPosition(174, 192, true, {
     alphanumerics: true,
     allowLeadingZeros: true,
   })
@@ -338,7 +338,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Valor presente na parcela. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(193, 205, true, { allowLeadingZeros: true })
+  @PropertyPosition(193, 205, true, { allowLeadingZeros: true })
   @MaxLength(13)
   @IsNotEmpty()
   ValorPresenteParcela: string = '';
@@ -347,7 +347,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Valor do abatimento. Valor padrão é '0000000000000'.
    * @type {string}
    */
-  @Decorators.PropertyPosition(206, 218, false, { allowLeadingZeros: true })
+  @PropertyPosition(206, 218, false, { allowLeadingZeros: true })
   @IsOptional()
   ValorAbatimento: string = '';
 
@@ -355,7 +355,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Identificação do tipo de inscrição do sacado. Deve ser preenchida.
    * @type {string}
    */
-  @Decorators.PropertyPosition(219, 220, true)
+  @PropertyPosition(219, 220, true)
   @MaxLength(2)
   @IsNotEmpty()
   IdentificacaoTipoInscricaoSacado: string = '01';
@@ -364,7 +364,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Número de inscrição do sacado. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(221, 234, true, {
+  @PropertyPosition(221, 234, true, {
     allowLeadingZeros: true,
     alphanumerics: true,
   })
@@ -376,7 +376,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Nome do sacado. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(235, 274, true)
+  @PropertyPosition(235, 274, true)
   @MaxLength(40)
   NomeSacado: string = '';
 
@@ -384,7 +384,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Endereço completo do sacado. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(275, 314, true, { alphanumerics: false })
+  @PropertyPosition(275, 314, true, { alphanumerics: false })
   @MaxLength(40)
   EnderecoCompleto: string = '';
 
@@ -392,7 +392,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Número da nota fiscal ou duplicata. Valor padrão é '' (vazio).
    * @type {string}
    */
-  @Decorators.PropertyPosition(315, 323, true)
+  @PropertyPosition(315, 323, true)
   @IsEmpty()
   NumeroNotaFiscalDuplicata: string = '';
 
@@ -400,7 +400,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Número de série da nota fiscal ou duplicata. Valor padrão é '' (vazio).
    * @type {string}
    */
-  @Decorators.PropertyPosition(324, 326, false)
+  @PropertyPosition(324, 326, false)
   @IsOptional()
   @MaxLength(3)
   NumeroSerieNotaFiscalDuplicata: string = '';
@@ -409,7 +409,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * CEP. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(327, 334, true, { alphanumerics: true })
+  @PropertyPosition(327, 334, true, { alphanumerics: true })
   @MaxLength(8)
   @IsNotEmpty()
   Cep: string = '';
@@ -418,7 +418,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Cedente. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(335, 394, false)
+  @PropertyPosition(335, 394, false)
   @MaxLength(60)
   @IsNotEmpty()
   Cedente: string = '';
@@ -427,7 +427,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Chave da nota fiscal. Valor padrão é '' (vazio).
    * @type {string}
    */
-  @Decorators.PropertyPosition(395, 438, false)
+  @PropertyPosition(395, 438, false)
   @MaxLength(44)
   ChaveNota: string = '';
 
@@ -435,7 +435,7 @@ export class RegistroTransacao implements BaseRegistroTransacao {
    * Número sequencial do registro. Deve ser preenchido.
    * @type {string}
    */
-  @Decorators.PropertyPosition(439, 444, true, { allowLeadingZeros: true })
+  @PropertyPosition(439, 444, true, { allowLeadingZeros: true })
   @MaxLength(6)
   @IsNotEmpty()
   NumeroSequencialRegistro: string = '';
