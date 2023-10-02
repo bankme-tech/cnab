@@ -1,6 +1,6 @@
 import { BaseRegistroHeaderLabel } from '@/cnab/444/interfaces/base-registro-header-label.interface';
 import { BaseRegistroHeaderLayout } from '@/cnab/444/interfaces/base-registro-header-layout.interface';
-import { Decorators } from '@/decorators';
+import { PropertyPosition } from '@/decorators';
 import { plainToClass } from 'class-transformer';
 import {
   IsAlphanumeric,
@@ -21,7 +21,7 @@ export class RegistroHeaderLabel
    * Identificação do registro (deve ser '0').
    * @example '0'
    */
-  @Decorators.PropertyPosition(1, 1, true, { allowLeadingZeros: false })
+  @PropertyPosition(1, 1, true, { allowLeadingZeros: false })
   @MaxLength(1)
   IdentificacaoRegistro: string = '0';
 
@@ -29,7 +29,7 @@ export class RegistroHeaderLabel
    * Identificação do arquivo de remessa (deve ser '1').
    * @example '1'
    */
-  @Decorators.PropertyPosition(2, 2, true, { allowLeadingZeros: false })
+  @PropertyPosition(2, 2, true, { allowLeadingZeros: false })
   @MaxLength(1)
   IdentificacaoArquivoRemessa: string = '1';
 
@@ -37,7 +37,7 @@ export class RegistroHeaderLabel
    * Literal de remessa (deve ser 'REMESSA').
    * @example 'REMESSA'
    */
-  @Decorators.PropertyPosition(3, 9, true, { allowLeadingZeros: false })
+  @PropertyPosition(3, 9, true, { allowLeadingZeros: false })
   @MaxLength(7)
   LiteralRemessa: string = 'REMESSA';
 
@@ -45,7 +45,7 @@ export class RegistroHeaderLabel
    * Código do serviço (deve ser '01').
    * @example '01'
    */
-  @Decorators.PropertyPosition(10, 11, true, { allowLeadingZeros: false })
+  @PropertyPosition(10, 11, true, { allowLeadingZeros: false })
   @MaxLength(2)
   CodigoServico: string = '01';
 
@@ -53,7 +53,7 @@ export class RegistroHeaderLabel
    * Literal de serviço (deve ser 'COBRANCA').
    * @example 'COBRANCA'
    */
-  @Decorators.PropertyPosition(12, 26, true, { allowLeadingZeros: false })
+  @PropertyPosition(12, 26, true, { allowLeadingZeros: false })
   @MaxLength(15)
   LiteralServico: string = 'COBRANCA';
 
@@ -61,7 +61,7 @@ export class RegistroHeaderLabel
    * Código do originador (máximo 20 caracteres alfanuméricos).
    * @example '0123456789ABCDEF0123'
    */
-  @Decorators.PropertyPosition(27, 46, true, {
+  @PropertyPosition(27, 46, true, {
     allowLeadingZeros: true,
     alphanumerics: true,
   })
@@ -73,7 +73,7 @@ export class RegistroHeaderLabel
    * Nome do originador (máximo 30 caracteres).
    * @example 'NOME DO ORIGINADOR'
    */
-  @Decorators.PropertyPosition(47, 76, true, { allowLeadingZeros: false })
+  @PropertyPosition(47, 76, true, { allowLeadingZeros: false })
   @MaxLength(30)
   @IsNotEmpty()
   NomeOriginador: string = '';
@@ -82,7 +82,7 @@ export class RegistroHeaderLabel
    * Número do banco (deve ser '611').
    * @example '611'
    */
-  @Decorators.PropertyPosition(77, 79, true, { allowLeadingZeros: false })
+  @PropertyPosition(77, 79, true, { allowLeadingZeros: false })
   @MaxLength(3)
   NumeroBanco: string = '611';
 
@@ -90,7 +90,7 @@ export class RegistroHeaderLabel
    * Nome do banco (máximo 15 caracteres).
    * @example 'NOME DO BANCO'
    */
-  @Decorators.PropertyPosition(80, 94, true, { allowLeadingZeros: false })
+  @PropertyPosition(80, 94, true, { allowLeadingZeros: false })
   @MaxLength(15)
   @IsNotEmpty()
   NomeBanco: string = 'PAULISTA S A';
@@ -99,7 +99,7 @@ export class RegistroHeaderLabel
    * Data de gravação do arquivo (formato 'DDMMAA').
    * @example '250922'
    */
-  @Decorators.PropertyPosition(95, 100, true, { allowLeadingZeros: false })
+  @PropertyPosition(95, 100, true, { allowLeadingZeros: false })
   @Matches(/^([0-9]{6})$/)
   @MaxLength(6)
   DataGravacaoArquivo: string = '';
@@ -108,7 +108,7 @@ export class RegistroHeaderLabel
    * Campo em branco.
    * @example ''
    */
-  @Decorators.PropertyPosition(101, 108, true, { allowLeadingZeros: false })
+  @PropertyPosition(101, 108, true, { allowLeadingZeros: false })
   @IsOptional()
   Branco101: string = '';
 
@@ -116,7 +116,7 @@ export class RegistroHeaderLabel
    * Identificação do sistema (máximo 2 caracteres alfanuméricos).
    * @example 'MX'
    */
-  @Decorators.PropertyPosition(109, 110, true, { allowLeadingZeros: false })
+  @PropertyPosition(109, 110, true, { allowLeadingZeros: false })
   @IsNotEmpty()
   @MaxLength(2)
   @IsAlphanumeric('pt-BR')
@@ -126,7 +126,7 @@ export class RegistroHeaderLabel
    * Número sequencial do arquivo (máximo 7 dígitos).
    * @example '0000001'
    */
-  @Decorators.PropertyPosition(111, 117, true, { allowLeadingZeros: true })
+  @PropertyPosition(111, 117, true, { allowLeadingZeros: true })
   @IsNotEmpty()
   @MaxLength(7)
   @Matches(/^([0-9]{7})$/)
@@ -136,7 +136,7 @@ export class RegistroHeaderLabel
    * Campo em branco.
    * @example ''
    */
-  @Decorators.PropertyPosition(118, 438, true, { allowLeadingZeros: false })
+  @PropertyPosition(118, 438, true, { allowLeadingZeros: false })
   @IsOptional()
   Branco118: string = '';
 
@@ -144,7 +144,7 @@ export class RegistroHeaderLabel
    * Número sequencial do registro (deve ser '000001').
    * @example '000001'
    */
-  @Decorators.PropertyPosition(439, 444, true, { allowLeadingZeros: true })
+  @PropertyPosition(439, 444, true, { allowLeadingZeros: true })
   @IsNotEmpty()
   @Matches(/^([0-9]{6})$/)
   @MaxLength(6)
