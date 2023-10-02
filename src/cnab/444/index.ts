@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { RegistroHeaderLabel } from '@/cnab/444/registro-header-label';
 import { RegistroTransacao } from '@/cnab/444/registro-transacao';
 import { RegistroTrailer } from '@/cnab/444/registro-trailer';
-import { Crlf, Metadata, File } from '@/helpers';
+import { Crlf, Metadata } from '@/helpers';
 
 export class Cnab444 {
   constructor(
@@ -35,10 +35,5 @@ export class Cnab444 {
     const cnab = [header, ...transactions, trailer].join('\n');
 
     return Crlf.parse(cnab);
-  }
-
-  public save(): void {
-    const filename = `CNAB444_${this.header.CodigoOriginador}_${this.header.DataGravacaoArquivo}.txt`;
-    return File.save(this.file(), `./tmp/${filename}`);
   }
 }
