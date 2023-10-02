@@ -1,2 +1,7 @@
 node_modules
 dist
+tsconfig.json
+pnpm-lock.yaml
+.gitignore
+*.md
+.changeset

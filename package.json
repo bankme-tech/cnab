@@ -15,7 +15,8 @@
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup src/index.ts --format cjs,esm --dts",
-    "release": "pnpm run build && changeset publish"
+    "release": "pnpm run build && changeset publish",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@swc/core": "1.3.91",
