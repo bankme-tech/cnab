@@ -9,7 +9,19 @@ export class Cnab444 {
     private readonly header: RegistroHeaderLabel,
     private readonly transactions: Array<RegistroTransacao>,
     private readonly trailer: RegistroTrailer,
-  ) {}
+  ) {
+    this.validate();
+  }
+
+  public validate(): void {
+    this.header.validate();
+
+    for (const transaction of this.transactions) {
+      transaction.validate();
+    }
+
+    this.trailer.validate();
+  }
 
   public file(): string {
     const header: string = Metadata.get.call(this.header);

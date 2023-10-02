@@ -5,7 +5,7 @@ export class Metadata {
     const data: K = {} as K;
 
     for (const key of Object.keys(this)) {
-      const metadataKey = `Field${key}`;
+      const metadataKey = `Field_${key}`;
       const fieldMetadata: K | undefined = Reflect.getMetadata(
         metadataKey,
         this,
